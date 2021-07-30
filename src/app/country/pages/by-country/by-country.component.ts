@@ -30,7 +30,6 @@ export class ByCountryComponent {
   }
 
   suggest( term: string){
-    console.log('holi')
     this.anyError = false;
     // TODO: Generate suggest
   }

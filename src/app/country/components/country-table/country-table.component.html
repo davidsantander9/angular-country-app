@@ -16,7 +16,7 @@
                     class="small-flag"
                     src="{{ country.flag }}" alt="{{ country.name }} flag">
             </td>
-            <td>{{ country.name }}</td>
+            <td>{{ country.name }} - {{ country.capital }}</td>
             <td>{{ country.population | number }}</td>
             <td>
                <a [routerLink]="[ '/country', country.alpha2Code]">name</a>
