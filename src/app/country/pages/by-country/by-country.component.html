@@ -16,11 +16,15 @@
 </div>
 
 <hr>
-<div class="alert alert-danger">
-    No results found :(
+<div
+    *ngIf="anyError"
+    class="alert alert-danger">
+    No results found for {{ term }} :(
 </div>
 
-<div class="row">
+<div
+    *ngIf="!anyError"
+    class="row">
     <div class="col">
         <table class="table table-hover">
             <thead>
