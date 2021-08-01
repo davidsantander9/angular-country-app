@@ -1,16 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-by-region',
   templateUrl: './by-region.component.html',
-  styles: [
+  styles: [`
+    button{
+      margin: 0 5px;
+    }
+    `
   ]
 })
-export class ByRegionComponent implements OnInit {
+export class ByRegionComponent {
+
+  regions: string[] = [ 'africa', 'americas', 'asia', 'europe', 'oceania'];
+  activatedRegion: string = '';
 
   constructor() { }
 
-  ngOnInit(): void {
+  activateRegion( region: string){
+    this.activatedRegion = region;
+    console.log(this.activatedRegion);
+    //TODO: load a service
   }
 
 }
