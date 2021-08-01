@@ -4,16 +4,17 @@
 <div class="row">
     <div class="col">
         <!-- [class.btn-primary]="region === activatedRegion" -->
+        <!-- [ngClass]="{
+            'btn-primary': region === activatedRegion,
+            'btn-outline-primary': region !== activatedRegion
+        }" -->
         <button 
             class="btn btn-outline-primary"
             *ngFor="let region of regions"
-            [ngClass]="{
-                'btn-primary': region === activatedRegion,
-                'btn-outline-primary': region !== activatedRegion
-            }"
+            [class]="getClassCss( region )"
             (click)="activateRegion(region)"
             >
-            {{ region }}
+            {{ region | titlecase }}
         </button>
     </div>
 </div>
