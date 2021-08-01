@@ -5,14 +5,19 @@ import { Country } from '../../interfaces/country.interface';
 @Component({
   selector: 'app-by-country',
   templateUrl: './by-country.component.html',
-  styles: [
+  styles: [`
+    li{cursor: pointer;}  
+  `
   ]
 })
 export class ByCountryComponent {
 
-  term: string = '';
   anyError: boolean = false;
   countries: Country[] = [];
+  term: string = '';
+  showSuggest: boolean = false;
+  suggestCountries: Country[] = [];
+
 
   constructor(private countryService: CountryService) { }
 
@@ -31,7 +36,18 @@ export class ByCountryComponent {
 
   suggest( term: string){
     this.anyError = false;
-    // TODO: Generate suggest
+    this.term = term;
+    this.showSuggest = true;
+    this.countryService.searchCountry( term )
+        .subscribe( countries => {this.suggestCountries = countries.splice(0,5 )}
+        , (err) => {
+          this.anyError = true;
+          this.suggestCountries = [];
+        } )
+  }
+
+  searchSuggest(term: string){
+    this.search( term );
   }
 
 }
