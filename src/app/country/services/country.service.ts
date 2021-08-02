@@ -32,7 +32,7 @@ export class CountryService {
     return this.http.get<Country>(url);
   }
   getCountryByRegion(region: string): Observable<Country[]>{
-    const url = `${ this.apiUrl }/region/${ region }?fields=;population`;
+    const url = `${ this.apiUrl }/region/${ region }`;
     return this.http.get<Country[]>(url, { params: this.getParams });
   }
   

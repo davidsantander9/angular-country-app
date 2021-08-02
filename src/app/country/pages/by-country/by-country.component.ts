@@ -34,7 +34,7 @@ export class ByCountryComponent {
     );
   }
 
-  suggest( term: string){
+  suggest( term: string ){
     this.anyError = false;
     this.term = term;
     this.showSuggest = true;
@@ -48,6 +48,7 @@ export class ByCountryComponent {
 
   searchSuggest(term: string){
     this.search( term );
+    this.showSuggest = false;
   }
 
 }
